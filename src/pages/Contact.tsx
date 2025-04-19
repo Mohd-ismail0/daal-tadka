@@ -4,14 +4,14 @@ import { Header } from "@/components/Header";
 
 export default function Contact() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
       <Header />
       <main className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl font-bold text-center mb-8">Contact Us</h1>
+          <h1 className="text-4xl font-bold text-center mb-8 text-amber-900">Contact Us</h1>
           <div className="grid md:grid-cols-2 gap-12">
             <div className="space-y-6">
-              <h2 className="text-2xl font-semibold">Get in Touch</h2>
+              <h2 className="text-2xl font-semibold text-amber-900">Get in Touch</h2>
               <p className="text-gray-600">
                 Have questions about our premium pulses? We'd love to hear from you. Send us a message
                 and we'll respond as soon as possible.
