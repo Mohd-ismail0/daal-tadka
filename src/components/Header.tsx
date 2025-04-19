@@ -1,0 +1,59 @@
+
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { ShoppingBag, Menu } from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+
+export function Header() {
+  return (
+    <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-sm">
+      <div className="container mx-auto px-4">
+        <div className="flex h-16 items-center justify-between">
+          <Link to="/" className="text-2xl font-bold text-purple-800">
+            Daal Tadka
+          </Link>
+          
+          <div className="hidden md:flex items-center space-x-6">
+            <Link to="/" className="text-sm font-medium hover:text-purple-800">
+              Home
+            </Link>
+            <Link to="/products" className="text-sm font-medium hover:text-purple-800">
+              Products
+            </Link>
+            <Link to="/contact" className="text-sm font-medium hover:text-purple-800">
+              Contact
+            </Link>
+            <Button variant="ghost" size="icon">
+              <ShoppingBag className="h-5 w-5" />
+            </Button>
+          </div>
+
+          <Sheet>
+            <SheetTrigger asChild className="md:hidden">
+              <Button variant="ghost" size="icon">
+                <Menu className="h-5 w-5" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent>
+              <div className="flex flex-col space-y-4 mt-6">
+                <Link to="/" className="text-lg font-medium hover:text-purple-800">
+                  Home
+                </Link>
+                <Link to="/products" className="text-lg font-medium hover:text-purple-800">
+                  Products
+                </Link>
+                <Link to="/contact" className="text-lg font-medium hover:text-purple-800">
+                  Contact
+                </Link>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
+      </div>
+    </header>
+  );
+}

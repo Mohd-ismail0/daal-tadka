@@ -1,0 +1,36 @@
+
+import { ContactForm } from "@/components/ui/contact-form";
+import { Header } from "@/components/Header";
+
+export default function Contact() {
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-purple-50 to-white">
+      <Header />
+      <main className="container mx-auto px-4 py-16">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl font-bold text-center mb-8">Contact Us</h1>
+          <div className="grid md:grid-cols-2 gap-12">
+            <div className="space-y-6">
+              <h2 className="text-2xl font-semibold">Get in Touch</h2>
+              <p className="text-gray-600">
+                Have questions about our premium pulses? We'd love to hear from you. Send us a message
+                and we'll respond as soon as possible.
+              </p>
+              <div className="space-y-4">
+                <p className="flex items-center space-x-3">
+                  <span className="font-medium">Email:</span>
+                  <span className="text-gray-600">contact@daaltadka.com</span>
+                </p>
+                <p className="flex items-center space-x-3">
+                  <span className="font-medium">Phone:</span>
+                  <span className="text-gray-600">+91 123 456 7890</span>
+                </p>
+              </div>
+            </div>
+            <ContactForm />
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+}
