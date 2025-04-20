@@ -1,52 +1,30 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 0%; /* Black background */
+    --background: 0 0% 0%; /* Pure black background */
     --foreground: 60 100% 50%; /* Bright yellow text */
-    --card: 0 0% 0%; /* Black card background */
+    --card: 0 0% 3%; /* Slightly lighter black for cards */
     --card-foreground: 60 100% 50%; /* Bright yellow card text */
-    --popover: 0 0% 0%; /* Black popover background */
+    --popover: 0 0% 3%; /* Slightly lighter black for popovers */
     --popover-foreground: 60 100% 50%; /* Bright yellow popover text */
     --primary: 120 39% 29%; /* Dark olive green primary */
-    --primary-foreground: 60 100% 50%; /* Bright yellow primary foreground */
+    --primary-foreground: 60 100% 50%; /* Bright yellow primary text */
     --secondary: 0 59% 29%; /* Dark red secondary */
     --secondary-foreground: 60 100% 50%; /* Bright yellow secondary text */
-    --muted: 0 0% 15%; /* Very dark gray muted */
-    --muted-foreground: 60 100% 40%; /* Slightly dimmed yellow muted text */
+    --muted: 0 0% 15%; /* Dark gray for muted elements */
+    --muted-foreground: 60 100% 70%; /* Softer yellow for muted text */
     --accent: 120 39% 29%; /* Dark olive green accent */
     --accent-foreground: 60 100% 50%; /* Bright yellow accent text */
     --destructive: 0 59% 29%; /* Dark red destructive */
     --destructive-foreground: 60 100% 50%; /* Bright yellow destructive text */
-    --border: 120 39% 29%; /* Dark olive green border */
-    --input: 120 39% 29%; /* Dark olive green input */
+    --border: 120 39% 20%; /* Darker olive green for borders */
+    --input: 120 39% 20%; /* Darker olive green for inputs */
     --ring: 60 100% 50%; /* Bright yellow ring */
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    /* Keeping dark mode similar to light mode for consistency */
-    --background: 0 0% 0%;
-    --foreground: 60 100% 100%;
-    --card: 0 0% 0%;
-    --card-foreground: 60 100% 100%;
-    --popover: 0 0% 0%;
-    --popover-foreground: 60 100% 100%;
-    --primary: 0 0% 100%;
-    --primary-foreground: 60 100% 0%;
-    --secondary: 0 0% 20%;
-    --secondary-foreground: 60 100% 100%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 60 100% 80%;
-    --accent: 0 0% 20%;
-    --accent-foreground: 60 100% 100%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 30%;
-    --input: 0 0% 30%;
-    --ring: 0 0% 50%;
+    --radius: 0.75rem; /* Slightly larger border radius */
   }
 }
 
@@ -56,6 +34,16 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+  }
+
+  /* Add smooth transitions */
+  a, button {
+    @apply transition-colors duration-200;
+  }
+
+  /* Improve text readability */
+  p {
+    @apply leading-relaxed;
   }
 }
