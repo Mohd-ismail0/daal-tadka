@@ -49,20 +49,20 @@ function ProductCard({ name, description, image, stores }: typeof products[0]) {
         />
       </div>
       <div className="p-6">
-        <h3 className="text-xl font-semibold text-amber-900">{name}</h3>
+        <h3 className="text-xl font-semibold text-[#2E7D32]">{name}</h3>
         <p className="mt-2 text-gray-600">{description}</p>
         <div className="mt-6 space-y-3">
-          <Button asChild className="w-full bg-amber-700 hover:bg-amber-800">
+          <Button asChild className="w-full bg-[#F97316] hover:bg-[#F97316]/90">
             <a href={stores.amazon} target="_blank" rel="noopener noreferrer">
               Buy on Amazon
             </a>
           </Button>
-          <Button asChild variant="outline" className="w-full">
+          <Button asChild variant="outline" className="w-full border-[#2E7D32] text-[#2E7D32] hover:bg-[#2E7D32]/10">
             <a href={stores.blinkit} target="_blank" rel="noopener noreferrer">
               Buy on Blinkit
             </a>
           </Button>
-          <Button asChild variant="outline" className="w-full">
+          <Button asChild variant="outline" className="w-full border-[#2E7D32] text-[#2E7D32] hover:bg-[#2E7D32]/10">
             <a href={stores.zepto} target="_blank" rel="noopener noreferrer">
               Buy on Zepto
             </a>
@@ -75,10 +75,10 @@ function ProductCard({ name, description, image, stores }: typeof products[0]) {
 
 export default function Products() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-[#F2FCE2] to-white">
       <Header />
       <main className="container mx-auto px-4 py-16">
-        <h1 className="text-4xl font-bold text-center mb-12 text-amber-900">Our Premium Collection</h1>
+        <h1 className="text-4xl font-bold text-center mb-12 text-[#2E7D32]">Our Premium Collection</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product) => (
             <ProductCard key={product.id} {...product} />
