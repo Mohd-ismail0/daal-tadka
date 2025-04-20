@@ -40,7 +40,7 @@ const products = [
 
 function ProductCard({ name, description, image, stores }: typeof products[0]) {
   return (
-    <div className="overflow-hidden rounded-lg border border-[#556B2F] bg-background shadow-sm transition-shadow hover:shadow-md">
+    <div className="overflow-hidden rounded-lg border bg-background shadow-sm transition-shadow hover:shadow-md">
       <div className="aspect-square overflow-hidden">
         <img
           src={image}
@@ -49,20 +49,20 @@ function ProductCard({ name, description, image, stores }: typeof products[0]) {
         />
       </div>
       <div className="p-6">
-        <h3 className="text-xl font-semibold text-[#FFD700]">{name}</h3>
+        <h3 className="text-xl font-semibold text-[#2E7D32]">{name}</h3>
         <p className="mt-2 text-foreground">{description}</p>
         <div className="mt-6 space-y-3">
-          <Button asChild className="w-full bg-[#8B0000] hover:bg-[#8B0000]/90 text-[#FFD700]">
+          <Button asChild className="w-full bg-[#F97316] hover:bg-[#F97316]/90">
             <a href={stores.amazon} target="_blank" rel="noopener noreferrer">
               Buy on Amazon
             </a>
           </Button>
-          <Button asChild variant="outline" className="w-full border-[#556B2F] text-[#FFD700] hover:bg-[#556B2F]/10">
+          <Button asChild variant="outline" className="w-full border-[#2E7D32] text-[#2E7D32] hover:bg-[#2E7D32]/10">
             <a href={stores.blinkit} target="_blank" rel="noopener noreferrer">
               Buy on Blinkit
             </a>
           </Button>
-          <Button asChild variant="outline" className="w-full border-[#556B2F] text-[#FFD700] hover:bg-[#556B2F]/10">
+          <Button asChild variant="outline" className="w-full border-[#2E7D32] text-[#2E7D32] hover:bg-[#2E7D32]/10">
             <a href={stores.zepto} target="_blank" rel="noopener noreferrer">
               Buy on Zepto
             </a>
@@ -78,7 +78,7 @@ export default function Products() {
     <div className="min-h-screen bg-background">
       <Header />
       <main className="container mx-auto px-4 py-16">
-        <h1 className="text-4xl font-bold text-center mb-12 text-[#FFD700]">Our Premium Collection</h1>
+        <h1 className="text-4xl font-bold text-center mb-12 text-[#2E7D32]">Our Premium Collection</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product) => (
             <ProductCard key={product.id} {...product} />

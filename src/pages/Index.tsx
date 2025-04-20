@@ -1,3 +1,4 @@
+
 import { Header } from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -19,10 +20,10 @@ export default function Index() {
                 className="h-32 w-auto"
               />
               <div>
-                <h1 className="text-5xl font-bold text-[#FFD700]">
+                <h1 className="text-5xl font-bold text-primary">
                   Premium Organic Pulses
                 </h1>
-                <p className="text-xl text-[#556B2F] mt-2">
+                <p className="text-xl text-muted-foreground mt-2">
                   Unpolished, Natural, Nutritious
                 </p>
               </div>
@@ -32,12 +33,12 @@ export default function Index() {
               Pure, natural, and rich in nutrients.
             </p>
             <div className="flex gap-4">
-              <Button asChild size="lg" className="bg-[#556B2F] text-[#FFD700] hover:bg-[#556B2F]/90">
+              <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
                 <Link to="/products">
                   Explore Products <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-[#8B0000] text-[#FFD700] hover:bg-[#8B0000]/10">
+              <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10">
                 <Link to="/contact">Contact Us</Link>
               </Button>
             </div>
@@ -50,29 +51,29 @@ export default function Index() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-12">
             <div className="text-center space-y-4">
-              <div className="w-16 h-16 mx-auto bg-[#556B2F]/20 rounded-full flex items-center justify-center">
+              <div className="w-16 h-16 mx-auto bg-secondary/10 rounded-full flex items-center justify-center">
                 <span className="text-2xl">🌱</span>
               </div>
-              <h3 className="text-xl font-semibold text-[#FFD700]">100% Organic</h3>
-              <p className="text-foreground">
+              <h3 className="text-xl font-semibold text-primary">100% Organic</h3>
+              <p className="text-muted-foreground">
                 Sourced from certified organic farms with sustainable practices
               </p>
             </div>
             <div className="text-center space-y-4">
-              <div className="w-16 h-16 mx-auto bg-[#556B2F]/20 rounded-full flex items-center justify-center">
+              <div className="w-16 h-16 mx-auto bg-secondary/10 rounded-full flex items-center justify-center">
                 <span className="text-2xl">✨</span>
               </div>
-              <h3 className="text-xl font-semibold text-[#FFD700]">Unpolished Quality</h3>
-              <p className="text-foreground">
+              <h3 className="text-xl font-semibold text-primary">Unpolished Quality</h3>
+              <p className="text-muted-foreground">
                 Natural and unpolished dals retaining all their nutritional value
               </p>
             </div>
             <div className="text-center space-y-4">
-              <div className="w-16 h-16 mx-auto bg-[#556B2F]/20 rounded-full flex items-center justify-center">
+              <div className="w-16 h-16 mx-auto bg-secondary/10 rounded-full flex items-center justify-center">
                 <span className="text-2xl">📦</span>
               </div>
-              <h3 className="text-xl font-semibold text-[#FFD700]">Available Online</h3>
-              <p className="text-foreground">
+              <h3 className="text-xl font-semibold text-primary">Available Online</h3>
+              <p className="text-muted-foreground">
                 Purchase easily through your favorite online platforms
               </p>
             </div>
