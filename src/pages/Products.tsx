@@ -40,7 +40,7 @@ const products = [
 
 function ProductCard({ name, description, image, stores }: typeof products[0]) {
   return (
-    <div className="overflow-hidden rounded-lg border bg-white shadow-sm transition-shadow hover:shadow-md">
+    <div className="overflow-hidden rounded-lg border bg-background shadow-sm transition-shadow hover:shadow-md">
       <div className="aspect-square overflow-hidden">
         <img
           src={image}
@@ -50,7 +50,7 @@ function ProductCard({ name, description, image, stores }: typeof products[0]) {
       </div>
       <div className="p-6">
         <h3 className="text-xl font-semibold text-[#2E7D32]">{name}</h3>
-        <p className="mt-2 text-gray-600">{description}</p>
+        <p className="mt-2 text-foreground">{description}</p>
         <div className="mt-6 space-y-3">
           <Button asChild className="w-full bg-[#F97316] hover:bg-[#F97316]/90">
             <a href={stores.amazon} target="_blank" rel="noopener noreferrer">
@@ -75,7 +75,7 @@ function ProductCard({ name, description, image, stores }: typeof products[0]) {
 
 export default function Products() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#F2FCE2] to-white">
+    <div className="min-h-screen bg-background">
       <Header />
       <main className="container mx-auto px-4 py-16">
         <h1 className="text-4xl font-bold text-center mb-12 text-[#2E7D32]">Our Premium Collection</h1>
