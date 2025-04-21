@@ -1,10 +1,7 @@
-
 import { ContactForm } from "@/components/ui/contact-form";
 import { Header } from "@/components/Header";
-
 export default function Contact() {
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       <Header />
       <main className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
@@ -19,7 +16,7 @@ export default function Contact() {
               <div className="space-y-4">
                 <p className="flex items-center space-x-3">
                   <span className="font-medium text-[#2E7D32]">Email:</span>
-                  <span className="text-foreground">contact@daaltadka.com</span>
+                  <span className="text-foreground">admin@advistaltd.com</span>
                 </p>
                 <p className="flex items-center space-x-3">
                   <span className="font-medium text-[#2E7D32]">Phone:</span>
@@ -31,6 +28,5 @@ export default function Contact() {
           </div>
         </div>
       </main>
-    </div>
-  );
+    </div>;
 }
