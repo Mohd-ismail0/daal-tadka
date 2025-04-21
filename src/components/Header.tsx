@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, ShoppingCart } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 export function Header() {
@@ -17,7 +17,7 @@ export function Header() {
             />
             <span className="font-medium text-lg hidden sm:inline-block">Daal Tadka</span>
           </Link>
-          
+
           <div className="hidden md:flex items-center space-x-8">
             <Link to="/" className="text-sm font-medium hover:text-primary transition-colors">
               Home
@@ -28,11 +28,7 @@ export function Header() {
             <Link to="/contact" className="text-sm font-medium hover:text-primary transition-colors">
               Contact
             </Link>
-            <Button asChild size="sm" variant="outline" className="rounded-full">
-              <a href="https://amazon.in" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                <ShoppingCart size={16} /> Shop Now
-              </a>
-            </Button>
+            {/* Removed Shop Now button from nav */}
           </div>
 
           <Sheet>
@@ -52,11 +48,7 @@ export function Header() {
                 <Link to="/contact" className="text-lg font-medium hover:text-primary transition-colors">
                   Contact
                 </Link>
-                <Button asChild className="mt-4 w-full rounded-full">
-                  <a href="https://amazon.in" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-                    <ShoppingCart size={16} /> Shop Now
-                  </a>
-                </Button>
+                {/* Removed Shop Now from mobile nav */}
               </div>
             </SheetContent>
           </Sheet>

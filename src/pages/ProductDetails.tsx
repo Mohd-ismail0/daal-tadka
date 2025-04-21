@@ -7,6 +7,7 @@ import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import { Header } from "@/components/Header";
 import { Helmet } from "react-helmet";
 import { Separator } from "@/components/ui/separator";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
 export default function ProductDetails() {
   const { id } = useParams<{ id: string }>();
@@ -23,6 +24,12 @@ export default function ProductDetails() {
       </div>
     );
   }
+
+  // Determine product images array (allow for carousel)
+  const productImages =
+    Array.isArray(product.images) && product.images.length > 0
+      ? product.images
+      : [product.image];
 
   // SEO metadata
   const pageTitle = `${product.name} | Premium Organic Products | Daal Tadka`;
@@ -56,11 +63,29 @@ export default function ProductDetails() {
           {/* IMAGE SECTION */}
           <div className="w-full lg:w-2/5 space-y-6">
             <div className="bg-gray-50 rounded-lg p-6 flex items-center justify-center min-h-[400px] hover-zoom">
-              <img
-                src={product.image}
-                alt={product.name}
-                className="rounded-md object-contain max-h-[360px] w-full"
-              />
+              {productImages.length > 1 ? (
+                <Carousel className="w-full max-w-xs mx-auto">
+                  <CarouselContent>
+                    {productImages.map((imgSrc: string, i: number) => (
+                      <CarouselItem key={i}>
+                        <img
+                          src={imgSrc}
+                          alt={`${product.name} image ${i + 1}`}
+                          className="rounded-md object-contain max-h-[320px] w-full bg-white transition-transform duration-200 hover:scale-105"
+                          draggable={false}
+                        />
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                </Carousel>
+              ) : (
+                <img
+                  src={productImages[0]}
+                  alt={product.name}
+                  className="rounded-md object-contain max-h-[360px] w-full"
+                  draggable={false}
+                />
+              )}
             </div>
             
             {/* Rating */}
@@ -192,3 +217,4 @@ export default function ProductDetails() {
     </div>
   );
 }
+
