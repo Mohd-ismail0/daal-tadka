@@ -20,7 +20,11 @@ export default function Contact() {
                 </p>
                 <p className="flex items-center space-x-3">
                   <span className="font-medium text-[#2E7D32]">Phone:</span>
-                  <span className="text-foreground">+91 123 456 7890</span>
+                  <span className="text-foreground">+91 9164015302</span>
+                </p>
+                <p className="flex items-center space-x-3">
+                  <span className="font-medium text-[#2E7D32]">FSSAI:</span>
+                  <span className="text-foreground">11225998000056</span>
                 </p>
               </div>
             </div>
