@@ -1,49 +1,84 @@
 
 #root {
-  max-width: 1280px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 2.5rem 1rem 2.5rem 1rem;
-  /* Smaller padding for wide screens, more mobile friendly */
-  text-align: center;
+  padding: 0;
+  text-align: left;
   background: none;
 }
 
+/* Remove unnecessary styling for logo animation */
 .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+  filter: brightness(1.1);
 }
 
 .card {
   padding: 2em;
   border-radius: 1.2em;
-  box-shadow: 0 2px 22px 0 rgb(29 35 45 / 13%);
   background: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.read-the-docs {
-  color: #888;
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
+/* Modern button styling */
+button {
+  transition: all 0.2s ease;
+}
+
+/* List item styling */
+ul.feature-list li {
+  position: relative;
+  padding-left: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+ul.feature-list li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+/* Image styles */
+.hover-zoom {
+  overflow: hidden;
+}
+
+.hover-zoom img {
+  transition: transform 0.5s ease;
+}
+
+.hover-zoom:hover img {
+  transform: scale(1.05);
+}
+
+/* Page transitions */
+.page-enter {
+  opacity: 0;
+}
+
+.page-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+.page-exit {
+  opacity: 1;
+}
+
+.page-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}

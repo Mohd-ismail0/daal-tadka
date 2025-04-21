@@ -1,10 +1,12 @@
 
-
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { products } from "@/productsData";
-import { ChevronRight, ShoppingCart, Star } from "lucide-react";
-import { Table, TableBody, TableCell, TableRow, TableHead, TableHeader } from "@/components/ui/table";
+import { ChevronRight, ShoppingCart, Star, Package, Award, Truck } from "lucide-react";
+import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
+import { Header } from "@/components/Header";
+import { Helmet } from "react-helmet";
+import { Separator } from "@/components/ui/separator";
 
 export default function ProductDetails() {
   const { id } = useParams<{ id: string }>();
@@ -14,95 +16,176 @@ export default function ProductDetails() {
   if (!product) {
     return (
       <div className="min-h-screen bg-background flex flex-col items-center justify-center">
-        <h1 className="text-2xl font-bold text-[#F97316] mb-4">Product Not Found</h1>
-        <Button variant="outline" onClick={() => navigate(-1)}>
+        <h1 className="text-2xl font-bold text-primary mb-4">Product Not Found</h1>
+        <Button variant="outline" onClick={() => navigate(-1)} className="rounded-full">
           Go Back
         </Button>
       </div>
     );
   }
 
+  // SEO metadata
+  const pageTitle = `${product.name} | Premium Organic Products | Daal Tadka`;
+  const pageDescription = `${product.description} Organic, unpolished, and rich in nutrients. Delivered fresh to your doorstep in Bangalore.`;
+
   return (
     <div className="min-h-screen bg-background">
-      <div className="container mx-auto max-w-5xl px-4 py-10">
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta name="keywords" content={`${product.name}, organic pulses, premium spices, bangalore delivery`} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:type" content="product" />
+        <meta property="og:image" content={product.image} />
+      </Helmet>
+      
+      <Header />
+      
+      <div className="container mx-auto max-w-6xl px-4 py-10">
         {/* Breadcrumbs */}
-        <nav className="mb-5 text-muted-foreground text-sm flex items-center gap-1">
-          <Link to="/" className="hover:underline text-[#2E7D32]">Home</Link>
-          <ChevronRight className="inline-block mx-1 text-muted-foreground" size={14} />
-          <Link to="/products" className="hover:underline text-[#2E7D32]">Products</Link>
-          <ChevronRight className="inline-block mx-1 text-muted-foreground" size={14} />
-          <span className="text-foreground font-medium">{product.name}</span>
+        <nav className="mb-8 text-sm flex items-center gap-1">
+          <Link to="/" className="hover:text-primary text-gray-600">Home</Link>
+          <ChevronRight className="inline-block mx-1 text-gray-400" size={14} />
+          <Link to="/products" className="hover:text-primary text-gray-600">Products</Link>
+          <ChevronRight className="inline-block mx-1 text-gray-400" size={14} />
+          <span className="text-primary font-medium">{product.name}</span>
         </nav>
-        <div className="flex flex-col lg:flex-row gap-10 bg-card rounded-xl shadow-lg p-7">
+        
+        <div className="flex flex-col lg:flex-row gap-12 bg-white rounded-xl shadow-sm p-8 border">
           {/* IMAGE SECTION */}
-          <div className="w-full lg:w-2/5 flex flex-col items-center">
-            <div className="bg-gray-900/80 border border-gray-800 rounded-lg p-4 mb-3 w-full flex items-center justify-center min-h-[325px]">
+          <div className="w-full lg:w-2/5 space-y-6">
+            <div className="bg-gray-50 rounded-lg p-6 flex items-center justify-center min-h-[400px] hover-zoom">
               <img
                 src={product.image}
                 alt={product.name}
-                className="rounded-md object-contain w-full max-h-[310px] bg-gray-900"
-                style={{ backgroundColor: "#18181b" }}
+                className="rounded-md object-contain max-h-[360px] w-full"
               />
             </div>
-            {/* Amazon-like star rating/fake */}
-            <div className="flex items-center space-x-1 mt-1">
-              <Star size={16} className="text-yellow-400 fill-yellow-400" />
-              <Star size={16} className="text-yellow-400 fill-yellow-400" />
-              <Star size={16} className="text-yellow-400 fill-yellow-400" />
-              <Star size={16} className="text-yellow-400 fill-yellow-400" />
-              <Star size={16} className="text-yellow-400 fill-yellow-400" />
-              <span className="ml-2 text-xs text-muted-foreground">(1,024 ratings)</span>
+            
+            {/* Rating */}
+            <div className="flex items-center justify-center space-x-1">
+              {[1, 2, 3, 4, 5].map((_, i) => (
+                <Star key={i} size={18} className="text-yellow-400 fill-yellow-400" />
+              ))}
+              <span className="ml-2 text-sm text-gray-500">(1,024 reviews)</span>
+            </div>
+            
+            {/* Trust badges */}
+            <div className="grid grid-cols-3 gap-4 pt-4 pb-2">
+              <div className="flex flex-col items-center text-center">
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-2">
+                  <Package size={18} className="text-primary" />
+                </div>
+                <span className="text-xs text-gray-600">Premium Quality</span>
+              </div>
+              <div className="flex flex-col items-center text-center">
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-2">
+                  <Award size={18} className="text-primary" />
+                </div>
+                <span className="text-xs text-gray-600">100% Organic</span>
+              </div>
+              <div className="flex flex-col items-center text-center">
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-2">
+                  <Truck size={18} className="text-primary" />
+                </div>
+                <span className="text-xs text-gray-600">Fast Delivery</span>
+              </div>
             </div>
           </div>
+          
           {/* PRODUCT INFO & BUY */}
-          <div className="w-full lg:w-3/5 flex flex-col justify-between gap-6">
+          <div className="w-full lg:w-3/5 flex flex-col justify-between gap-8">
             <div>
-              <h1 className="text-3xl font-bold text-[#2E7D32] mb-2">{product.name}</h1>
-              <p className="mb-4 text-lg text-foreground/90">{product.description}</p>
+              <h1 className="text-3xl font-medium text-gray-900 mb-2">{product.name}</h1>
+              <p className="mb-6 text-lg text-gray-600">{product.description}</p>
 
+              <Separator className="my-6" />
+              
               {/* Highlights */}
               {product.highlights && (
-                <ul className="list-disc pl-6 space-y-1 mb-4">
-                  {product.highlights.map((highlight, i) => (
-                    <li className="text-muted-foreground text-sm" key={i}>{highlight}</li>
-                  ))}
-                </ul>
+                <div className="mb-8">
+                  <h2 className="text-lg font-medium mb-4">Product Highlights</h2>
+                  <ul className="space-y-2">
+                    {product.highlights.map((highlight, i) => (
+                      <li className="flex items-start" key={i}>
+                        <span className="text-primary mr-2 mt-1">•</span>
+                        <span className="text-gray-600">{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               )}
             </div>
+            
             {/* Buy Buttons */}
-            <div className="flex flex-col gap-2 w-full mt-3">
-              <Button asChild className="w-full bg-[#F97316] hover:bg-[#F97316]/90 shadow-sm flex items-center justify-center gap-2 text-base py-5 rounded-lg font-semibold">
+            <div className="flex flex-col gap-3 w-full">
+              <Button asChild className="w-full bg-accent hover:bg-accent/90 shadow-sm flex items-center justify-center gap-2 text-base py-6 rounded-full font-medium">
                 <a href={product.stores.amazon} target="_blank" rel="noopener noreferrer">
-                  <ShoppingCart className="inline" /> Buy on Amazon
+                  <ShoppingCart size={18} className="inline" /> Buy on Amazon
                 </a>
               </Button>
-              <Button asChild variant="outline" className="w-full border-[#2E7D32] text-[#2E7D32] hover:bg-[#2E7D32]/10 flex items-center gap-2 font-semibold py-4 rounded-lg">
+              <Button asChild variant="outline" className="w-full border-primary text-primary hover:bg-primary/5 flex items-center justify-center gap-2 font-medium py-5 rounded-full">
                 <a href={product.stores.blinkit} target="_blank" rel="noopener noreferrer">
-                  <ShoppingCart className="inline" /> Buy on Blinkit
+                  <ShoppingCart size={18} className="inline" /> Buy on Blinkit
                 </a>
               </Button>
-              <Button asChild variant="outline" className="w-full border-[#2E7D32] text-[#2E7D32] hover:bg-[#2E7D32]/10 flex items-center gap-2 font-semibold py-4 rounded-lg">
+              <Button asChild variant="outline" className="w-full border-primary text-primary hover:bg-primary/5 flex items-center justify-center gap-2 font-medium py-5 rounded-full">
                 <a href={product.stores.zepto} target="_blank" rel="noopener noreferrer">
-                  <ShoppingCart className="inline" /> Buy on Zepto
+                  <ShoppingCart size={18} className="inline" /> Buy on Zepto
                 </a>
               </Button>
             </div>
+            
             {/* Details Table */}
             {product.details && (
-              <div className="mt-8 bg-gray-900/80 rounded-lg p-5 border border-gray-800 shadow-inner">
-                <h2 className="text-lg font-semibold mb-3 text-foreground/90">Product Details</h2>
+              <div className="mt-8 bg-gray-50 rounded-lg p-6 border border-gray-100">
+                <h2 className="text-lg font-medium mb-4 text-gray-900">Product Specifications</h2>
                 <Table>
                   <TableBody>
                     {product.details.map((row, i) => (
-                      <TableRow key={i}>
-                        <TableCell className="font-semibold w-40 text-muted-foreground">{row.label}</TableCell>
-                        <TableCell className="text-foreground/90">{row.value}</TableCell>
+                      <TableRow key={i} className="border-b border-gray-100">
+                        <TableCell className="py-3 font-medium text-gray-700">{row.label}</TableCell>
+                        <TableCell className="py-3 text-gray-600">{row.value}</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
                 </Table>
               </div>
             )}
+          </div>
+        </div>
+        
+        {/* Additional Info - SEO friendly */}
+        <div className="my-12 max-w-3xl mx-auto px-4">
+          <h2 className="text-2xl font-medium mb-4 text-gray-900">Why Choose Our {product.name}?</h2>
+          <p className="text-gray-600 mb-6">
+            Our premium {product.name} is meticulously sourced from organic farms across India. Unlike commercially produced alternatives, our products are carefully processed to retain maximum nutritional value, making them perfect for health-conscious professionals in Bangalore looking to maintain optimal wellness without compromising on quality or taste.
+          </p>
+          <p className="text-gray-600">
+            With reliable delivery across Bangalore's tech hubs including Koramangala, HSR Layout, Indiranagar, and Whitefield, we ensure your pantry stays stocked with nutritious essentials without disrupting your demanding schedule.
+          </p>
+        </div>
+        
+        {/* Similar Products */}
+        <div className="mt-16">
+          <h2 className="text-2xl font-medium mb-8 text-gray-900">You May Also Like</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {products
+              .filter(p => p.id !== product.id)
+              .map(p => (
+                <Link key={p.id} to={`/products/${p.id}`} className="group">
+                  <div className="flex items-center space-x-4 p-4 rounded-lg border hover:shadow-md transition-all">
+                    <div className="w-16 h-16 bg-gray-50 rounded overflow-hidden">
+                      <img src={p.image} alt={p.name} className="w-full h-full object-cover" />
+                    </div>
+                    <div>
+                      <h3 className="font-medium text-primary group-hover:underline">{p.name}</h3>
+                      <p className="text-sm text-gray-500 line-clamp-1">{p.description}</p>
+                    </div>
+                  </div>
+                </Link>
+              ))}
           </div>
         </div>
       </div>
