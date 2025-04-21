@@ -1,47 +1,44 @@
-
 import { Header } from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, Award, Package, ShoppingCart, Star, Truck } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { Card, CardContent } from "@/components/ui/card";
-import { 
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Helmet } from "react-helmet";
 import { products } from "@/productsData";
 
 // Featured product component
-const FeaturedProduct = ({ id, name, image, description }: typeof products[0]) => (
-  <Link to={`/products/${id}`} className="group">
+const FeaturedProduct = ({
+  id,
+  name,
+  image,
+  description
+}: typeof products[0]) => <Link to={`/products/${id}`} className="group">
     <div className="product-card overflow-hidden rounded-2xl bg-card">
       <div className="aspect-square overflow-hidden bg-gray-50">
-        <img
-          src={image}
-          alt={name}
-          className="h-full w-full object-cover transition-transform group-hover:scale-105"
-        />
+        <img src={image} alt={name} className="h-full w-full object-cover transition-transform group-hover:scale-105" />
       </div>
       <div className="p-6">
         <h3 className="text-lg font-medium text-primary">{name}</h3>
         <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{description}</p>
       </div>
     </div>
-  </Link>
-);
+  </Link>;
 
 // Testimonial component
-const Testimonial = ({ quote, author, role }: { quote: string, author: string, role: string }) => (
-  <Card className="bg-gray-50 border-none shadow-sm">
+const Testimonial = ({
+  quote,
+  author,
+  role
+}: {
+  quote: string;
+  author: string;
+  role: string;
+}) => <Card className="bg-gray-50 border-none shadow-sm">
     <CardContent className="pt-6">
       <div className="flex gap-2 mb-3">
-        {[1, 2, 3, 4, 5].map((star) => (
-          <Star key={star} size={16} className="text-yellow-400 fill-yellow-400" />
-        ))}
+        {[1, 2, 3, 4, 5].map(star => <Star key={star} size={16} className="text-yellow-400 fill-yellow-400" />)}
       </div>
       <p className="italic text-gray-600">"{quote}"</p>
       <div className="mt-4">
@@ -49,16 +46,12 @@ const Testimonial = ({ quote, author, role }: { quote: string, author: string, r
         <p className="text-sm text-muted-foreground">{role}</p>
       </div>
     </CardContent>
-  </Card>
-);
-
+  </Card>;
 export default function Index() {
   // SEO metadata
   const pageTitle = "Premium Organic Pulses & Spices | Daal Tadka";
   const pageDescription = "Discover high-quality, unpolished organic pulses and authentic spices. Delivered fresh to Bangalore tech professionals who value health without compromise.";
-
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       <Helmet>
         <title>{pageTitle}</title>
         <meta name="description" content={pageDescription} />
@@ -98,11 +91,7 @@ export default function Index() {
             </div>
             
             <div className="mt-10 md:mt-0 md:w-1/2 flex justify-center">
-              <img 
-                src="/lovable-uploads/43485b87-1a3d-4a65-ae9d-39e3f258f90b.png" 
-                alt="Premium Organic Products" 
-                className="h-auto w-full max-w-md animate-float"
-              />
+              <img alt="Premium Organic Products" className="h-auto w-full max-w-md animate-float" src="/lovable-uploads/ed5efda9-e9d7-453f-acbe-657cd86daffc.png" />
             </div>
           </div>
         </div>
@@ -155,9 +144,7 @@ export default function Index() {
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {products.map((product) => (
-              <FeaturedProduct key={product.id} {...product} />
-            ))}
+            {products.map(product => <FeaturedProduct key={product.id} {...product} />)}
           </div>
         </div>
       </section>
@@ -171,25 +158,13 @@ export default function Index() {
             <Carousel>
               <CarouselContent>
                 <CarouselItem>
-                  <Testimonial 
-                    quote="As a software engineer working long hours, I never compromise on the quality of food I eat. These organic pulses have become a staple in my daily diet."
-                    author="Rahul Sharma"
-                    role="Software Engineer, Bangalore"
-                  />
+                  <Testimonial quote="As a software engineer working long hours, I never compromise on the quality of food I eat. These organic pulses have become a staple in my daily diet." author="Rahul Sharma" role="Software Engineer, Bangalore" />
                 </CarouselItem>
                 <CarouselItem>
-                  <Testimonial 
-                    quote="The authentic flavor of these unpolished dals reminds me of my grandmother's cooking. Love that I can get this quality despite my busy schedule."
-                    author="Priya Mehta"
-                    role="UX Designer, Whitefield"
-                  />
+                  <Testimonial quote="The authentic flavor of these unpolished dals reminds me of my grandmother's cooking. Love that I can get this quality despite my busy schedule." author="Priya Mehta" role="UX Designer, Whitefield" />
                 </CarouselItem>
                 <CarouselItem>
-                  <Testimonial 
-                    quote="Having these premium quality spices delivered to my doorstep has made cooking enjoyable again. The difference in flavor is remarkable!"
-                    author="Arjun Nair"
-                    role="Product Manager, Koramangala"
-                  />
+                  <Testimonial quote="Having these premium quality spices delivered to my doorstep has made cooking enjoyable again. The difference in flavor is remarkable!" author="Arjun Nair" role="Product Manager, Koramangala" />
                 </CarouselItem>
               </CarouselContent>
               <CarouselPrevious className="left-0" />
@@ -240,6 +215,5 @@ export default function Index() {
           </Button>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 }
