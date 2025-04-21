@@ -7,8 +7,8 @@ import { ChevronRight } from "lucide-react";
 
 function ProductCard({ id, name, description, image }: typeof products[0]) {
   return (
-    <div className="overflow-hidden rounded-lg border bg-card shadow-sm transition-shadow hover:shadow-md flex flex-col">
-      <div className="aspect-square overflow-hidden">
+    <div className="overflow-hidden rounded-xl border bg-card shadow-lg transition-transform duration-150 hover:scale-[1.025] flex flex-col ring-1 ring-gray-900/5">
+      <div className="aspect-square overflow-hidden bg-gray-900/70">
         <img
           src={image}
           alt={name}
@@ -16,10 +16,10 @@ function ProductCard({ id, name, description, image }: typeof products[0]) {
         />
       </div>
       <div className="p-6 flex flex-col flex-1">
-        <h3 className="text-xl font-semibold text-[#2E7D32]">{name}</h3>
-        <p className="mt-2 text-foreground flex-1">{description}</p>
-        <div className="mt-6 flex justify-end">
-          <Button asChild className="bg-[#F97316] hover:bg-[#F97316]/90">
+        <h3 className="text-xl font-bold text-[#2E7D32] mb-2">{name}</h3>
+        <p className="text-muted-foreground mb-4 flex-1">{description}</p>
+        <div className="mt-auto flex justify-end">
+          <Button asChild className="bg-[#F97316] hover:bg-[#F97316]/90 rounded-full font-medium px-6">
             <Link to={`/products/${id}`} className="flex items-center gap-2">
               View More Details <ChevronRight size={18} />
             </Link>
@@ -35,8 +35,8 @@ export default function Products() {
     <div className="min-h-screen bg-background">
       <Header />
       <main className="container mx-auto px-4 py-16">
-        <h1 className="text-4xl font-bold text-center mb-12 text-[#2E7D32]">Our Premium Collection</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <h1 className="text-4xl font-extrabold text-center mb-12 text-[#2E7D32] drop-shadow">Our Premium Collection</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {products.map((product) => (
             <ProductCard key={product.id} {...product} />
           ))}
