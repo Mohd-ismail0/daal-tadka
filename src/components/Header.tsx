@@ -1,21 +1,14 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-
 export function Header() {
-  return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white/90 backdrop-blur-md shadow-sm">
+  return <header className="sticky top-0 z-50 w-full border-b bg-white/90 backdrop-blur-md shadow-sm">
       <div className="container mx-auto rounded-none py-4">
         <div className="flex h-14 items-center justify-between">
           <Link to="/" className="flex items-center space-x-2">
-            <img 
-              src="/lovable-uploads/e984f320-8194-439a-bb6e-d6752b022ba9.png" 
-              alt="Daal Tadka Logo" 
-              className="h-8 w-auto" 
-            />
-            <span className="font-medium text-lg hidden sm:inline-block">Daal Tadka</span>
+            <img alt="Daal Tadka Logo" src="/lovable-uploads/eb4199f2-9182-472a-b3fe-2554598b92de.png" className="h-16 w-auto object-contain" />
+            
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
@@ -54,6 +47,5 @@ export function Header() {
           </Sheet>
         </div>
       </div>
-    </header>
-  );
+    </header>;
 }
