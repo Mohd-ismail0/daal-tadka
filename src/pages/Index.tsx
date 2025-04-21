@@ -91,7 +91,7 @@ export default function Index() {
             </div>
             
             <div className="mt-10 md:mt-0 md:w-1/2 flex justify-center">
-              <img alt="Premium Organic Products" className="h-auto w-full max-w-md animate-float" src="/lovable-uploads/ed5efda9-e9d7-453f-acbe-657cd86daffc.png" />
+              <img alt="Premium Organic Products" className="h-auto w-full max-w-md animate-float" src="/lovable-uploads/946570d6-3d7f-4c2a-b0a9-520682fecc92.png" />
             </div>
           </div>
         </div>
