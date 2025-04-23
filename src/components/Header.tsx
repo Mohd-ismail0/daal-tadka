@@ -21,7 +21,6 @@ export function Header() {
             <Link to="/contact" className="text-sm font-medium hover:text-primary transition-colors">
               Contact
             </Link>
-            {/* Removed Shop Now button from nav */}
           </div>
 
           <Sheet>
@@ -41,7 +40,6 @@ export function Header() {
                 <Link to="/contact" className="text-lg font-medium hover:text-primary transition-colors">
                   Contact
                 </Link>
-                {/* Removed Shop Now from mobile nav */}
               </div>
             </SheetContent>
           </Sheet>
