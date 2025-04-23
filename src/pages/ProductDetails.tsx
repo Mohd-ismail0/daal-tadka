@@ -1,4 +1,3 @@
-
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { products } from "@/productsData";
@@ -25,32 +24,32 @@ export default function ProductDetails() {
     );
   }
 
-  // Determine product images array (allow for carousel)
   const productImages =
     Array.isArray(product.images) && product.images.length > 0
       ? product.images
       : [product.image];
 
-  // SEO metadata
-  const pageTitle = `${product.name} | Premium Organic Products | Daal Tadka`;
-  const pageDescription = `${product.description} Organic, unpolished, and rich in nutrients. Delivered fresh to your doorstep in Bangalore.`;
+  const pageTitle = product.name;
+  const pageDescription =
+    product.longDescription ||
+    product.description ||
+    "Premium organic pulses, rich in nutrients, delivered fresh to your doorstep in Bangalore.";
 
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
         <title>{pageTitle}</title>
         <meta name="description" content={pageDescription} />
-        <meta name="keywords" content={`${product.name}, organic pulses, premium spices, bangalore delivery`} />
+        <meta name="keywords" content={product.keywords || ""} />
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={pageDescription} />
         <meta property="og:type" content="product" />
-        <meta property="og:image" content={product.image} />
+        <meta property="og:image" content={productImages[0]} />
       </Helmet>
       
       <Header />
       
       <div className="container mx-auto max-w-6xl px-4 py-10">
-        {/* Breadcrumbs */}
         <nav className="mb-8 text-sm flex items-center gap-1">
           <Link to="/" className="hover:text-primary text-gray-600">Home</Link>
           <ChevronRight className="inline-block mx-1 text-gray-400" size={14} />
@@ -60,7 +59,6 @@ export default function ProductDetails() {
         </nav>
         
         <div className="flex flex-col lg:flex-row gap-12 bg-white rounded-xl shadow-sm p-8 border">
-          {/* IMAGE SECTION */}
           <div className="w-full lg:w-2/5 space-y-6">
             <div className="bg-gray-50 rounded-lg p-6 flex items-center justify-center min-h-[400px] hover-zoom">
               {productImages.length > 1 ? (
@@ -88,7 +86,6 @@ export default function ProductDetails() {
               )}
             </div>
             
-            {/* Rating */}
             <div className="flex items-center justify-center space-x-1">
               {[1, 2, 3, 4, 5].map((_, i) => (
                 <Star key={i} size={18} className="text-yellow-400 fill-yellow-400" />
@@ -96,7 +93,6 @@ export default function ProductDetails() {
               <span className="ml-2 text-sm text-gray-500">(1,024 reviews)</span>
             </div>
             
-            {/* Trust badges */}
             <div className="grid grid-cols-3 gap-4 pt-4 pb-2">
               <div className="flex flex-col items-center text-center">
                 <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-2">
@@ -119,15 +115,17 @@ export default function ProductDetails() {
             </div>
           </div>
           
-          {/* PRODUCT INFO & BUY */}
           <div className="w-full lg:w-3/5 flex flex-col justify-between gap-8">
             <div>
-              <h1 className="text-3xl font-medium text-gray-900 mb-2">{product.name}</h1>
-              <p className="mb-6 text-lg text-gray-600">{product.description}</p>
+              <h1 className="text-3xl font-medium text-gray-900 mb-2">
+                {product.name}
+              </h1>
+              <p className="mb-6 text-lg text-gray-600">
+                {product.longDescription || product.description}
+              </p>
 
               <Separator className="my-6" />
               
-              {/* Highlights */}
               {product.highlights && (
                 <div className="mb-8">
                   <h2 className="text-lg font-medium mb-4">Product Highlights</h2>
@@ -143,7 +141,6 @@ export default function ProductDetails() {
               )}
             </div>
             
-            {/* Buy Buttons */}
             <div className="flex flex-col gap-3 w-full">
               <Button asChild className="w-full bg-accent hover:bg-accent/90 shadow-sm flex items-center justify-center gap-2 text-base py-6 rounded-full font-medium">
                 <a href={product.stores.amazon} target="_blank" rel="noopener noreferrer">
@@ -162,7 +159,6 @@ export default function ProductDetails() {
               </Button>
             </div>
             
-            {/* Details Table */}
             {product.details && (
               <div className="mt-8 bg-gray-50 rounded-lg p-6 border border-gray-100">
                 <h2 className="text-lg font-medium mb-4 text-gray-900">Product Specifications</h2>
@@ -181,18 +177,17 @@ export default function ProductDetails() {
           </div>
         </div>
         
-        {/* Additional Info - SEO friendly */}
         <div className="my-12 max-w-3xl mx-auto px-4">
-          <h2 className="text-2xl font-medium mb-4 text-gray-900">Why Choose Our {product.name}?</h2>
+          <h2 className="text-2xl font-medium mb-4 text-gray-900">Why Choose Our {product.name.split("|")[0].trim()}?</h2>
           <p className="text-gray-600 mb-6">
-            Our premium {product.name} is meticulously sourced from organic farms across India. Unlike commercially produced alternatives, our products are carefully processed to retain maximum nutritional value, making them perfect for health-conscious professionals in Bangalore looking to maintain optimal wellness without compromising on quality or taste.
+            {product.longDescription ||
+              "Our premium product is meticulously sourced from organic farms across India. Carefully processed for maximum nutrition, perfect for health-conscious professionals in Bangalore."}
           </p>
           <p className="text-gray-600">
             With reliable delivery across Bangalore's tech hubs including Koramangala, HSR Layout, Indiranagar, and Whitefield, we ensure your pantry stays stocked with nutritious essentials without disrupting your demanding schedule.
           </p>
         </div>
         
-        {/* Similar Products */}
         <div className="mt-16">
           <h2 className="text-2xl font-medium mb-8 text-gray-900">You May Also Like</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -217,4 +212,3 @@ export default function ProductDetails() {
     </div>
   );
 }
-
