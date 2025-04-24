@@ -5,12 +5,12 @@ export const products = [
   {
     id: 1,
     name: "Daal Tadka Premium Tur Dal 1kg | Unpolished, Protein-Rich Toor Dal | High Fiber & Low Fat | Natural & Hygienically Packed Indian Pulses | Ideal for Daily Cooking",
-    description: "Daal Tadka’s Premium Tur Dal is 100% unpolished, protein-rich, and packed using hygienic, sustainable processes. 22g protein & 15g fiber per 100g. No artificial polishing, perfect for daily Indian meals. FSSAI certified, farm-to-fork traceability, and sealed freshness for Bangalore’s busy health-conscious professionals.",
-    image: "/lovable-uploads/c0d0c740-a72f-4a23-8eee-bde2da313629.png",
+    description: "Daal Tadka's Premium Tur Dal is 100% unpolished, protein-rich, and packed using hygienic, sustainable processes. 22g protein & 15g fiber per 100g. No artificial polishing, perfect for daily Indian meals. FSSAI certified, farm-to-fork traceability, and sealed freshness for Bangalore's busy health-conscious professionals.",
+    image: "/images/c0d0c740-a72f-4a23-8eee-bde2da313629.png",
     images: [
-      "/lovable-uploads/c0d0c740-a72f-4a23-8eee-bde2da313629.png",
-      "/lovable-uploads/9f02a996-c368-4948-9a19-2e27afe5f7bb.png",
-      "/lovable-uploads/b1a633c7-8200-482b-8029-4cbd78ddd2d2.png"
+      "/images/c0d0c740-a72f-4a23-8eee-bde2da313629.png",
+      "/images/9f02a996-c368-4948-9a19-2e27afe5f7bb.png",
+      "/images/b1a633c7-8200-482b-8029-4cbd78ddd2d2.png"
     ],
     stores: {
       amazon: "https://amazon.in",
@@ -40,9 +40,9 @@ export const products = [
     ],
     keywords:
       "toor dal, tur dal 1kg, unpolished dal, protein dal, Indian pulses, toor dal unpolished, best toor dal, buy dal online, natural tur dal, daal tadka brand, yellow split pigeon peas, daily cooking pulses, healthy dal",
-    longDescription: `Daal Tadka’s Premium Tur Dal is your go-to choice for everyday Indian cooking. Carefully sourced from trusted farms across India, our dal is 100% unpolished and naturally preserved to retain essential nutrients, taste, and color. Packed with 22g protein and 15g fiber per 100g, this high-protein dal supports your family’s nutritional needs without compromising on taste.
+    longDescription: `Daal Tadka's Premium Tur Dal is your go-to choice for everyday Indian cooking. Carefully sourced from trusted farms across India, our dal is 100% unpolished and naturally preserved to retain essential nutrients, taste, and color. Packed with 22g protein and 15g fiber per 100g, this high-protein dal supports your family's nutritional needs without compromising on taste.
 
-Whether it’s the comforting dal tadka, authentic sambhar, or a nourishing bowl of khichdi, our Tur Dal adapts beautifully to every Indian recipe. It’s easy to cook, with a creamy, aromatic texture that elevates every meal.
+Whether it's the comforting dal tadka, authentic sambhar, or a nourishing bowl of khichdi, our Tur Dal adapts beautifully to every Indian recipe. It's easy to cook, with a creamy, aromatic texture that elevates every meal.
 
 Each pouch is packed at MIS Agro Foods, Karnataka, under strict quality controls, and distributed by Advista Marketing Pvt Ltd, Bangalore. With a focus on hygiene, sustainability, and nutritional value, Daal Tadka offers the perfect balance of tradition and quality.
 

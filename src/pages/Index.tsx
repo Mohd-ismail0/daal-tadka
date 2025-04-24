@@ -59,7 +59,7 @@ export default function Index() {
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={pageDescription} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/lovable-uploads/43485b87-1a3d-4a65-ae9d-39e3f258f90b.png" />
+        <meta property="og:image" content="/images/logo-main.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={pageDescription} />
@@ -91,7 +91,7 @@ export default function Index() {
             </div>
             
             <div className="mt-10 md:mt-0 md:w-1/2 flex justify-center">
-              <img alt="Premium Organic Products" className="h-auto w-full max-w-md animate-float" src="/lovable-uploads/946570d6-3d7f-4c2a-b0a9-520682fecc92.png" />
+              <img alt="Premium Organic Products" className="h-auto w-full max-w-md animate-float" src="/images/logo-main.png" />
             </div>
           </div>
         </div>

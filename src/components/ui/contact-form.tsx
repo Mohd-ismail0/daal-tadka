@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "./button";
 import { Input } from "./input";
@@ -23,7 +22,22 @@ export function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 w-full max-w-md">
+    <form 
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      onSubmit={handleSubmit}
+      className="space-y-6 w-full max-w-md"
+    >
+      <input type="hidden" name="form-name" value="contact" />
+      
+      <p className="hidden">
+        <label>
+          Don't fill this out if you're human: <input name="bot-field" onChange={handleChange} />
+        </label>
+      </p>
+
       <div>
         <label htmlFor="name" className="block text-sm font-medium mb-2">
           Name

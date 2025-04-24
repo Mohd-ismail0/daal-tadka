@@ -14,6 +14,15 @@ export default function Contact() {
                 and we'll respond as soon as possible.
               </p>
               <div className="space-y-4">
+                <div>
+                  <h3 className="font-medium text-[#2E7D32]">Advista Marketing Pvt Ltd</h3>
+                  <p className="text-foreground">
+                    #273, 2nd Main, 1st Block, <br /> R.T Nagar, Bangalore - 560032
+                  </p>
+                  <p className="text-foreground mt-1">
+                    Website: <a href="https://advistaltd.com" target="_blank" rel="noopener noreferrer" className="hover:underline text-primary">advistaltd.com</a>
+                  </p>
+                </div>
                 <p className="flex items-center space-x-3">
                   <span className="font-medium text-[#2E7D32]">Email:</span>
                   <span className="text-foreground">admin@advistaltd.com</span>

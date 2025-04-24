@@ -1,24 +1,16 @@
-# Welcome to your Lovable project
+# Daal Tadka Website Project
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/ae4b4342-7498-4cf8-b78f-fb1f3a5c2989
+This project contains the source code for the Daal Tadka website.
 
 ## How can I edit this code?
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/ae4b4342-7498-4cf8-b78f-fb1f3a5c2989) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
 **Use your preferred IDE**
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+If you want to work locally using your own IDE, you can clone this repo and push changes.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+The only requirement is having Node.js & npm/yarn/bun installed.
 
 Follow these steps:
 
@@ -30,10 +22,20 @@ git clone <YOUR_GIT_URL>
 cd <YOUR_PROJECT_NAME>
 
 # Step 3: Install the necessary dependencies.
-npm i
+# Using npm:
+npm install
+# Using yarn:
+yarn install
+# Using bun:
+bun install
 
 # Step 4: Start the development server with auto-reloading and an instant preview.
+# Using npm:
 npm run dev
+# Using yarn:
+yarn dev
+# Using bun:
+bun dev
 ```
 
 **Edit a file directly in GitHub**
@@ -59,15 +61,19 @@ This project is built with:
 - React
 - shadcn-ui
 - Tailwind CSS
+- React Router DOM
+- TanStack Query
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/ae4b4342-7498-4cf8-b78f-fb1f3a5c2989) and click on Share -> Publish.
+This Vite project can be deployed to various hosting platforms like Vercel, Netlify, GitHub Pages, etc. Follow the platform-specific guides after running the build command:
 
-## Can I connect a custom domain to my Lovable project?
+```sh
+npm run build # or yarn build / bun build
+```
 
-Yes, you can!
+The output will be in the `dist/` folder.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Can I connect a custom domain?
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Yes, most hosting platforms allow you to connect a custom domain. Please refer to your chosen hosting provider's documentation.

@@ -7,7 +7,7 @@ export function Header() {
       <div className="container mx-auto rounded-none py-4">
         <div className="flex h-14 items-center justify-between">
           <Link to="/" className="flex items-center space-x-2">
-            <img alt="Daal Tadka Logo" src="/lovable-uploads/eb4199f2-9182-472a-b3fe-2554598b92de.png" className="h-16 w-auto object-contain" />
+            <img alt="Daal Tadka Logo" src="/images/logo-landscape-without.png" className="h-16 w-auto object-contain" />
             
           </Link>
 
