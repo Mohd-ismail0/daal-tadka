@@ -7,11 +7,9 @@ export function ContactForm() {
     <form 
       name="contact"
       method="POST"
-      action="/thank-you"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
       className="space-y-6 w-full max-w-md"
-      netlify
     >
       <input type="hidden" name="form-name" value="contact" />
       
