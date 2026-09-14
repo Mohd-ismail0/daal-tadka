@@ -14,6 +14,11 @@ function encodeFormData(form: HTMLFormElement) {
   return params.toString();
 }
 
+function isLocalHost() {
+  if (typeof window === "undefined") return false;
+  return ["localhost", "127.0.0.1"].includes(window.location.hostname);
+}
+
 export function ContactForm() {
   const navigate = useNavigate();
   const [submitting, setSubmitting] = useState(false);
@@ -30,12 +35,17 @@ export function ContactForm() {
         body: encodeFormData(form),
       });
 
-      if (!response.ok) {
+      // Vite/local hosts cannot process Netlify form POSTs; still complete the UX flow.
+      if (!response.ok && !isLocalHost() && !import.meta.env.DEV) {
         throw new Error(`Form submission failed (${response.status})`);
       }
 
       navigate("/thank-you");
     } catch {
+      if (isLocalHost() || import.meta.env.DEV) {
+        navigate("/thank-you");
+        return;
+      }
       toast.error("We couldn't send your message. Please try again or email admin@advistaltd.com.");
     } finally {
       setSubmitting(false);
